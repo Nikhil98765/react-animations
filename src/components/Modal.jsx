@@ -10,9 +10,13 @@ export default function Modal({ title, children, onClose }) {
       <motion.dialog
         open
         className="modal"
+        transition={{
+          type: "spring",
+        }}
         variants={{
           hidden: { y: 30, opacity: 0 },
-          visible: { y: 0, opacity: 1 }
+          visible: { y: 0, opacity: 1 },
+          // destroyed: { y: 30, opacity: 0 },
         }}
         initial="hidden"
         animate="visible"

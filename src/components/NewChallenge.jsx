@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { ChallengesContext } from '../store/challenges-context.jsx';
 import Modal from './Modal.jsx';
@@ -58,13 +59,22 @@ export default function NewChallenge({ onDone }) {
 
         <ul id="new-challenge-images">
           {images.map((image) => (
-            <li
+            <motion.li
               key={image.alt}
               onClick={() => handleSelectImage(image)}
-              className={selectedImage === image ? 'selected' : undefined}
+              className={selectedImage === image ? "selected" : undefined}
+              transition={{ type: "spring" }}
+              variants={{
+                hidden: { scale: 0.5, opacity: 0 },
+                visible: { scale: 1, opacity: 1 },
+                // destroyed: { scale: 1, opacity: 1 },
+              }}
+              // TODO: Not sure why the exit is not getting triggered for children when used with AnimatePresence.
+              // exit="visible"
+              // exit={{ scale: 1, opacity: 1 }}
             >
               <img {...image} />
-            </li>
+            </motion.li>
           ))}
         </ul>
 
