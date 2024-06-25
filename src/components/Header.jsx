@@ -27,7 +27,8 @@ export default function Header() {
           onClick={handleStartAddNewChallenge}
           className="button"
           whileHover={{
-            scale: 1.1
+            scale: 1.1,
+            backgroundColor: '#8b11f0'
           }}
           transition={{
             type: 'spring',

@@ -76,7 +76,8 @@ export default function NewChallenge({ onDone }) {
               transition={{ type: "spring" }}
               variants={{
                 hidden: { scale: 0.5, opacity: 0 },
-                visible: { scale: 1, opacity: 1 },
+                // * If value of scale or any property is array, then it is a array of keyframes.                
+                visible: { scale: [0.8, 1.3, 1], opacity: 1 },
                 // destroyed: { scale: 1, opacity: 1 },
               }}
               // TODO: Not sure why the exit is not getting triggered for children when used with AnimatePresence.
