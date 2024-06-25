@@ -10,7 +10,8 @@ function Tab({ isSelected, onSelect, badgeCaption, children }) {
         onClick={onSelect}
       >
         {children}
-        <Badge caption={badgeCaption}></Badge>
+        {/* Adding a key prop to a React element will recreate the component again on re-render */}
+        <Badge key={badgeCaption} caption={badgeCaption}></Badge>
       </button>
       {isSelected && <motion.div layoutId="tab-indicator" className="active-tab-indicator" />}
     </li>
