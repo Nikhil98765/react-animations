@@ -28,10 +28,10 @@ export default function ChallengeItem({
   }
 
   return (
-    <li>
+    <motion.li layout exit={{opacity: 0, y: -30}}>
       <article className="challenge-item">
         <header>
-          <img {...challenge.image} />
+          <img {...challenge.image} alt={challenge.title}/>
           <div className="challenge-item-meta">
             <h2>{challenge.title}</h2>
             <p>Complete until {formattedDate}</p>
@@ -64,6 +64,6 @@ export default function ChallengeItem({
           )}
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 }
